@@ -1,0 +1,75 @@
+* {
+    border: 2px solid red;
+}
+
+.body {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid green;
+    width: 70%;
+    height: 100%;
+}
+
+.main__header-box{
+    display: flex;
+    width: 50%;
+    height: 20%;
+    justify-content: center;
+}
+
+.main__header{
+    font-size: 33pt;
+}
+
+.main__health-bars-box{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main__health-bars{
+    height: 80%;
+    width: 40%;
+}
+
+.main__fighters-box{
+    width: 100%;
+    height: 50%;
+}
+.sidebar__left{
+    width: 15%;
+    height: 100%;
+}
+.sidebar__right{
+    width: 15%;
+    height: 100%;
+}
+
+
+/* 
+.cornered__left{
+    width: 50%;
+    height: 0;
+    border-bottom: 200px solid green;
+    border-left: 200px solid black;
+}
+
+.cornered__right{
+    width: 50%;
+    height: 0;
+    border-bottom: 200px solid green;
+    border-left: 200px solid black;
+} */
