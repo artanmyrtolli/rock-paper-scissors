@@ -1,10 +1,10 @@
 class Player {
-    constructor(name, token, wins){
+    constructor(name, token){
         this.name = name;
         this.token = token;
-        this.wins = wins || 0;
-        this.optionsClassic = [`rock`, `paper`, `scissors`];
-        this.optionsModern = [`rock`, `paper`, `scissors`, `lizard`, `alien`];
+        this.wins = 0;
+        this.optionsClassic = [new Rock(), new Paper(), new Scissors()];
+        this.optionsModern = [new Rock(), new Paper(), new Scissors(), new Alien(), new Lizard()];
     }
     takeTurnClassic(){
          return this.optionsClassic[this.randomNumberGenerator(3)]

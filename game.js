@@ -25,49 +25,26 @@ class Game {
 
 
     checkWinnerClassic(){
-        if (this.player1Choice === this.player2Choice) {
-            return this.winner = `draw`;
-        }
-        if (this.player1Choice === `rock` && this.player2Choice === `scissors`) {
-            this.player1.wins++;
-            return this.winner = `player1`;
-        }
-        if (this.player1Choice === `paper` && this.player2Choice === `rock`) {
-            this.player1.wins++;
-            return this.winner = `player1`;
-        }
-        if (this.player1Choice === `scissors` && this.player2Choice === `paper`) {
-            this.player1.wins++;
-            return this.winner = `player1`;
-        }
-        this.player2.wins++;
-        return this.winner = `player2`;
+            if (this.player1Choice.compare(this.player2Choice) < 0) {
+                return `${this.player2.name} wins.`
+            }
+            if (this.player1Choice.compare(this.player2Choice) === 0) {
+                return `This match is a draw`
+            }
+            if (this.player1Choice.compare(this.player2Choice) > 0) {
+                return `${this.player1.name} wins.`
+            }
     }
     checkWinnerModern(){
-        if (this.player1Choice === this.player2Choice) {
-            return this.winner = `draw`;
+
+        if (this.player1Choice.compare(this.player2Choice) < 0) {
+            return `${this.player2.name} wins.`
         }
-        if (this.player1Choice === `rock` && (this.player2Choice === `scissors` || this.player2Choice === `lizard`)) {
-            this.player1.wins++;
-            return this.winner = `player1`;
+        if (this.player1Choice.compare(this.player2Choice) === 0) {
+            return `This match is a draw`
         }
-        if (this.player1Choice === `paper` && (this.player2Choice === `alien` || this.player2Choice === `rock`)) {
-            this.player1.wins++;
-            return this.winner = `player1`;
+        if (this.player1Choice.compare(this.player2Choice) > 0) {
+            return `${this.player1.name} wins.`
         }
-        if (this.player1Choice === `scissors` && (this.player2Choice === `lizard` || this.player2Choice === `paper`)) {
-            this.player1.wins++;
-            return this.winner = `player1`;
-        }
-        if (this.player1Choice === `lizard` && (this.player2Choice === `paper` || this.player2Choice === `alien`)) {
-            this.player1.wins++;
-            return this.winner = `player1`;
-        }
-        if (this.player1Choice === `alien` && (this.player2Choice === `rock` || this.player2Choice === `scissors`)) {
-            this.player1.wins++;
-            return this.winner = `player1`;
-        }
-        this.player2.wins++;
-        return this.winner = `player2`;
     }
 }
