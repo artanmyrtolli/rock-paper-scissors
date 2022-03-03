@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body class="body">
+<body>
     <section class="sidebar__left">
         <section class="sidebar__left-header-box">
             <h1 class="sidebar__left-header">Player 1</h1>
@@ -24,18 +24,26 @@
         <section class="main__header-box">
             <h1 class="main__header">ROCK, PAPER, SCISSORS</h1>
         </section>
-        <section class="main__health-bars-box">
-            <section class="main__health-bars">
-                <h1 class="main__player-health">PLAYER 1</h1>
+        <section class="main__all-buttons-box">
+            <section class="main__player-buttons-box">
+                <button class="main__pick-fighter-button">Pick Fighter</button>
+                <button class="main__chng-bknd-button">Change Background</button>
+                <button class="main__game-mode-button">Game Mode</button>
             </section>
-            <section class="main__health-bars">
-                <h1 class="main__computer-health">CPU</h1>
-            </section>
+            <button class="main__attack-button">Attack!</button>
         </section>
-        <section class="main__fighters-box">
+        <section class="main__player-throw-buttons-box-classic">
+            <button class="main__rock-throw-button hidden" id=''>Rock</button>
+            <button class="main__paper-throw-button hidden">Paper</button>
+            <button class="main__scissors-throw-button hidden">Scissors</button>
+        </section>
+        <section class="main__player-throw-buttons-box-modern">
+            <button class="main__lizard-throw-button hidden">Lizard</button>
+            <button class="main__alien-throw-button hidden">Alien</button>
+        </section>
+        <section class="main__action-box">
         </section>
     </section>
-
     <section class="sidebar__right">
         <section class="sidebar__right-header-box">
             <h1 class="sidebar__right-header">CPU</h1>
