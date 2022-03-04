@@ -113,7 +113,6 @@ function userChoice(choice){
 
 function declareWinner(){
     console.log(currentGame);
-    winnerBox.classList.remove('hidden');
     if (currentGame.winner === `player`) {
         declarePlayerWins();
         return;
@@ -123,23 +122,25 @@ function declareWinner(){
         return;
     }
     declareDraw();
-    setTimeout(hideWinnerMessage, 5000)
+
+    setInterval(flashElements(), 5000);
+    
 }
 
 function declarePlayerWins() {
-    winnerMessage.classList.remove('hidden');
+    showWinnerMessage();
     winnerMessage.innerText = '<<< PLAYER WINS!!'
     adjustWinCounters();
 }
 
 function declareComputerWins() {
-    winnerMessage.classList.remove('hidden');
+    showWinnerMessage();
     winnerMessage.innerText = 'CPU WINS!! >>>'
     adjustWinCounters();
 }
 
 function declareDraw() {
-    winnerMessage.classList.remove('hidden');
+    showWinnerMessage();
     winnerMessage.innerText = 'THIS MATCH IS A DRAW!'
 }
 
@@ -183,6 +184,11 @@ function hideFighters(){
     fighterBox.classList.add('hidden');
 }
 
+function showWinnerMessage(){
+    winnerBox.classList.remove('hidden');
+    winnerMessage.classList.remove('hidden');
+}
+
 function hideWinnerMessage(){
     winnerBox.classList.add('hidden');
     winnerMessage.classList.add('hidden');
@@ -194,6 +200,15 @@ function ranomizeBackground(){
         currentBackground = 0;
     }
     body.style.backgroundImage = `url(${backgroundArray[currentBackground]})`;
+}
+
+function flashElements(){
+    // var f = document.getElementById('divId');
+    setTimeout(hideWinnerMessage, 500);
+    setTimeout(showWinnerMessage, 1000);
+    setTimeout(hideWinnerMessage, 1500);
+    setTimeout(showWinnerMessage, 2000);
+
 }
 
 function randomNumberGenerator(max){
