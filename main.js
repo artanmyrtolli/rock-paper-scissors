@@ -112,7 +112,7 @@ function userChoice(choice){
 }
 
 function declareWinner(){
-    console.log(currentGame.winner);
+    console.log(currentGame);
     winnerBox.classList.remove('hidden');
     if (currentGame.winner === `player`) {
         declarePlayerWins();
@@ -123,7 +123,7 @@ function declareWinner(){
         return;
     }
     declareDraw();
-
+    setTimeout(hideWinnerMessage, 5000)
 }
 
 function declarePlayerWins() {
