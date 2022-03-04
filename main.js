@@ -1,4 +1,6 @@
+var body = document.querySelector('body');
 var gameModeBtn = document.querySelector('.main__game-mode-button');
+var changeBkgdButton = document.querySelector('.main__chng-bknd-button')
 var mainHeader = document.querySelector('.main__header');
 var gameModeText = document.querySelector('.main__current-game-mode-text')
 var attackBtn = document.querySelector('.main__attack-button');
@@ -11,9 +13,21 @@ var lizardBtn = document.querySelector('.main__lizard-throw-button');
 var currentGame;
 var currentMode = `classic`;
 var currentPlayer = `Artan`;
+var currentBackground = 0;
 
+changeBkgdButton.addEventListener('load', ranomizeBackground)
+changeBkgdButton.addEventListener('click', ranomizeBackground)
 gameModeBtn.addEventListener('click', changeGameMode)
-attackBtn.addEventListener('click', showAttackButtonsModern)
+attackBtn.addEventListener('click', function(){
+    if (currentMode === `classic`) {
+        console.log(`classic `);
+        showAttackButtonsClassic();
+    } 
+    if (currentMode === `modern`){
+        console.log(`modern`);
+        showAttackButtonsModern();
+    }
+})
 rockBtn.addEventListener('click', createRockClass);
 paperBtn.addEventListener('click', createPaperClass);
 scissorsBtn.addEventListener('click', createScissorsClass);
@@ -21,6 +35,7 @@ alienBtn.addEventListener('click', createAlienClass);
 lizardBtn.addEventListener('click', createLizardClass);
 
 function changeGameMode(){
+    hideAttackButtons();
     if (currentMode === `classic`) {
         currentMode = `modern`;
         gameModeText.innerText = `Modern`
@@ -74,10 +89,29 @@ function showAttackButtonsModern(){
     alienBtn.classList.remove('hidden');
     lizardBtn.classList.remove('hidden');
 }
+
+function showAttackButtonsClassic(){
+    rockBtn.classList.remove('hidden');
+    paperBtn.classList.remove('hidden');
+    scissorsBtn.classList.remove('hidden');
+}
+
 function hideAttackButtons(){
     rockBtn.classList.add('hidden');
     paperBtn.classList.add('hidden');
     scissorsBtn.classList.add('hidden');
-    alienBtn.classList.add('hidden');
+    alienBtn.classList.add('hidden');   
     lizardBtn.classList.add('hidden');
+}
+
+function ranomizeBackground(){
+    currentBackground++;
+    if (currentBackground > 2) {
+        currentBackground = 0;
+    }
+    body.style.backgroundImage = `url(${backgroundArray[currentBackground]})`;
+}
+
+function randomNumberGenerator(max){
+    return Math.floor(Math.random() * max)
 }
