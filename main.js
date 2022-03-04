@@ -17,7 +17,10 @@ var fighterSkirt = document.querySelector('.fighter__skirt');
 var fighterViking = document.querySelector('.fighter__viking');
 var playerWinsCounter = document.querySelector('.sidebar__left-counter-number');
 var computerWinsCounter = document.querySelector('.sidebar__right-counter-number');
+var winnerBox = document.querySelector('.main__action-winner-box');
+var winnerMessage = document.querySelector('.main__action-winner-message');
 var playerImage = document.querySelector('.sidebar__left-image');
+
 
 var currentPlayer = new Player ('Artan');
 var CPU = new Player('CPU');
@@ -109,9 +112,35 @@ function userChoice(choice){
 }
 
 function declareWinner(){
+    console.log(currentGame);
+    winnerBox.classList.remove('hidden');
+    if (currentGame.winner === `player`) {
+        declarePlayerWins();
+        return;
+    }
+    if (currentGame.winner === `cpu`) {
+        declareComputerWins();
+        return;
+    }
+    declareDraw();
+    setTimeout(hideWinnerMessage, 5000)
+}
+
+function declarePlayerWins() {
+    winnerMessage.classList.remove('hidden');
+    winnerMessage.innerText = '<<< PLAYER WINS!!'
     adjustWinCounters();
+}
 
+function declareComputerWins() {
+    winnerMessage.classList.remove('hidden');
+    winnerMessage.innerText = 'CPU WINS!! >>>'
+    adjustWinCounters();
+}
 
+function declareDraw() {
+    winnerMessage.classList.remove('hidden');
+    winnerMessage.innerText = 'THIS MATCH IS A DRAW!'
 }
 
 function adjustWinCounters(){
@@ -120,6 +149,7 @@ function adjustWinCounters(){
 }
 
 function showAttackButtonsModern(){
+    hideWinnerMessage();
     hideFighters();
     rockBtn.classList.remove('hidden');
     paperBtn.classList.remove('hidden');
@@ -129,6 +159,7 @@ function showAttackButtonsModern(){
 }
 
 function showAttackButtonsClassic(){
+    hideWinnerMessage();
     hideFighters();
     rockBtn.classList.remove('hidden');
     paperBtn.classList.remove('hidden');
@@ -150,6 +181,11 @@ function showFighters(){
 function hideFighters(){
     fighterHeader.classList.add('hidden');
     fighterBox.classList.add('hidden');
+}
+
+function hideWinnerMessage(){
+    winnerBox.classList.add('hidden');
+    winnerMessage.classList.add('hidden');
 }
 
 function ranomizeBackground(){
