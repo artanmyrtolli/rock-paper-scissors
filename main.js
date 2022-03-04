@@ -1,3 +1,6 @@
+var gameModeBtn = document.querySelector('.main__game-mode-button');
+var mainHeader = document.querySelector('.main__header');
+var gameModeText = document.querySelector('.main__current-game-mode-text')
 var attackBtn = document.querySelector('.main__attack-button');
 var rockBtn = document.querySelector('.main__rock-throw-button');
 var paperBtn = document.querySelector('.main__paper-throw-button');
@@ -9,6 +12,7 @@ var currentGame;
 var currentMode = `classic`;
 var currentPlayer = `Artan`;
 
+gameModeBtn.addEventListener('click', changeGameMode)
 attackBtn.addEventListener('click', showAttackButtonsModern)
 rockBtn.addEventListener('click', createRockClass);
 paperBtn.addEventListener('click', createPaperClass);
@@ -16,23 +20,43 @@ scissorsBtn.addEventListener('click', createScissorsClass);
 alienBtn.addEventListener('click', createAlienClass);
 lizardBtn.addEventListener('click', createLizardClass);
 
-function createRockClass () {
+function changeGameMode(){
+    if (currentMode === `classic`) {
+        currentMode = `modern`;
+        gameModeText.innerText = `Modern`
+        changeHeaderModern();
+    } else {
+        currentMode = `classic`;
+        gameModeText.innerText = `Classic`
+        changeHeaderClassic();
+    }
+}
+
+function changeHeaderModern(){
+    mainHeader.innerText = `ROCK, PAPER, SCISSORS, ALIEN, LIZARD`
+}
+
+function changeHeaderClassic(){
+    mainHeader.innerText = `ROCK, PAPER, SCISSORS`
+}
+
+function createRockClass() {
     var rock = new Rock()
     userChoice(rock);
 }
-function createPaperClass () {
+function createPaperClass() {
     var paper = new Paper()
     userChoice(paper);
 }
-function createScissorsClass () {
+function createScissorsClass() {
     var scissors = new Scissors()
     userChoice(scissors);
 }
-function createAlienClass () {
+function createAlienClass() {
     var alien = new Alien()
     userChoice(alien);
 }
-function createLizardClass () {
+function createLizardClass() {
     var lizard = new Lizard()
     userChoice(lizard);
 }
