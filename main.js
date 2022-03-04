@@ -1,30 +1,40 @@
 var body = document.querySelector('body');
-var gameModeBtn = document.querySelector('.main__game-mode-button');
-var changeBkgdButton = document.querySelector('.main__chng-bknd-button')
 var mainHeader = document.querySelector('.main__header');
-var gameModeText = document.querySelector('.main__current-game-mode-text')
+var gameModeText = document.querySelector('.main__current-game-mode-text');
+var pickFighterBtn = document.querySelector('.main__pick-fighter-button');
+var gameModeBtn = document.querySelector('.main__game-mode-button');
+var changeBkgdBtn = document.querySelector('.main__chng-bknd-button')
 var attackBtn = document.querySelector('.main__attack-button');
 var rockBtn = document.querySelector('.main__rock-throw-button');
 var paperBtn = document.querySelector('.main__paper-throw-button');
 var scissorsBtn = document.querySelector('.main__scissors-throw-button');
 var alienBtn = document.querySelector('.main__alien-throw-button');
 var lizardBtn = document.querySelector('.main__lizard-throw-button');
+var fighterBox = document.querySelector('.main__action-fighters-box'); 
+var fighterPaladin = document.querySelector('.fighter__paladin');
+var fighterSkirt = document.querySelector('.fighter__skirt');
+var fighterViking = document.querySelector('.fighter__viking');
+var playerWinsCounter = document.querySelector('.sidebar__left-counter-number');
+var computerWinsCounter = document.querySelector('.sidebar__right-counter-number');
+var playerImage = document.querySelector('.sidebar__left-image');
 
 var currentGame;
 var currentMode = `classic`;
-var currentPlayer = `Artan`;
+var currentPlayer = new Player ('Artan');
+var CPU = new Player('CPU');
 var currentBackground = 0;
 
-changeBkgdButton.addEventListener('load', ranomizeBackground)
-changeBkgdButton.addEventListener('click', ranomizeBackground)
+pickFighterBtn.addEventListener('click', showFighters)
+fighterPaladin.addEventListener('click', changeFighterPaladin);
+fighterSkirt.addEventListener('click', changeFighterSkirt);
+fighterViking.addEventListener('click', changeFighterViking);
+changeBkgdBtn.addEventListener('click', ranomizeBackground)
 gameModeBtn.addEventListener('click', changeGameMode)
 attackBtn.addEventListener('click', function(){
     if (currentMode === `classic`) {
-        console.log(`classic `);
         showAttackButtonsClassic();
     } 
     if (currentMode === `modern`){
-        console.log(`modern`);
         showAttackButtonsModern();
     }
 })
@@ -33,6 +43,23 @@ paperBtn.addEventListener('click', createPaperClass);
 scissorsBtn.addEventListener('click', createScissorsClass);
 alienBtn.addEventListener('click', createAlienClass);
 lizardBtn.addEventListener('click', createLizardClass);
+
+
+function changeFighterPaladin(){
+    playerImage.src = `./assets/fighters/Paladin.png`;
+    hideFighters();
+}
+
+function changeFighterSkirt(){
+    playerImage.src = `./assets/fighters/Skirt.png`;
+    hideFighters();
+}
+
+function changeFighterViking(){
+    playerImage.src = `./assets/fighters/Viking.png`;
+    hideFighters();
+}
+
 
 function changeGameMode(){
     hideAttackButtons();
@@ -78,8 +105,14 @@ function createLizardClass() {
 
 function userChoice(choice){
     hideAttackButtons()
-    currentGame = new Game(currentPlayer, choice, currentMode);
-    console.log(currentGame);
+    currentGame = new Game(currentPlayer, CPU, choice, currentMode);
+    declareWinner();
+}
+
+function declareWinner(){
+    playerWinsCounter.innerText = currentGame.player1.wins;
+    computerWinsCounter.innerText = currentGame.player2.wins;
+
 }
 
 function showAttackButtonsModern(){
@@ -104,9 +137,16 @@ function hideAttackButtons(){
     lizardBtn.classList.add('hidden');
 }
 
+function showFighters(){
+    fighterBox.classList.remove('hidden');
+}
+function hideFighters(){
+    fighterBox.classList.add('hidden');
+}
+
 function ranomizeBackground(){
     currentBackground++;
-    if (currentBackground > 2) {
+    if (currentBackground > 7) {
         currentBackground = 0;
     }
     body.style.backgroundImage = `url(${backgroundArray[currentBackground]})`;

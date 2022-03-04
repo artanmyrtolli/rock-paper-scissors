@@ -1,5 +1,10 @@
 var backgroundArray = [
-    `./assets/backgrounds/XdZGlu.gif`,
-    `./assets/backgrounds/3.gif`,
-    `./assets/backgrounds/2825963.gif`
+    `./assets/backgrounds/matrix.gif`,
+    `./assets/backgrounds/rainbow.gif`,
+    `./assets/backgrounds/moon.gif`,
+    `./assets/backgrounds/bubbles.gif`,
+    `./assets/backgrounds/city.gif`,
+    `./assets/backgrounds/retro.gif`,
+    `./assets/backgrounds/space.gif`,
+    `./assets/backgrounds/parsecs.gif`
 ]
