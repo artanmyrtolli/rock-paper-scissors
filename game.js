@@ -17,14 +17,14 @@ class Game {
     checkWinner(){
         if (this.player1Choice.compare(this.player2Choice) < 0) {
             this.player2.wins++;
-            return `${this.player2.name} wins.`
+            return `player`
         }
         if (this.player1Choice.compare(this.player2Choice) === 0) {
-            return `This match is a draw!`
+            return `draw`
         }
         if (this.player1Choice.compare(this.player2Choice) > 0) {
             this.player1.wins++;
-            return `${this.player1.name} wins.`
+            return `cpu`
         }
     }
 }
