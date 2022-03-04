@@ -11,6 +11,7 @@ var scissorsBtn = document.querySelector('.main__scissors-throw-button');
 var alienBtn = document.querySelector('.main__alien-throw-button');
 var lizardBtn = document.querySelector('.main__lizard-throw-button');
 var fighterBox = document.querySelector('.main__action-fighters-box'); 
+var fighterHeader = document.querySelector('.main__action-header')
 var fighterPaladin = document.querySelector('.fighter__paladin');
 var fighterSkirt = document.querySelector('.fighter__skirt');
 var fighterViking = document.querySelector('.fighter__viking');
@@ -18,11 +19,9 @@ var playerWinsCounter = document.querySelector('.sidebar__left-counter-number');
 var computerWinsCounter = document.querySelector('.sidebar__right-counter-number');
 var playerImage = document.querySelector('.sidebar__left-image');
 
-var currentGame;
-var currentMode = `classic`;
 var currentPlayer = new Player ('Artan');
 var CPU = new Player('CPU');
-var currentBackground = 0;
+
 
 pickFighterBtn.addEventListener('click', showFighters)
 fighterPaladin.addEventListener('click', changeFighterPaladin);
@@ -110,12 +109,18 @@ function userChoice(choice){
 }
 
 function declareWinner(){
-    playerWinsCounter.innerText = currentGame.player1.wins;
-    computerWinsCounter.innerText = currentGame.player2.wins;
+    adjustWinCounters();
+
 
 }
 
+function adjustWinCounters(){
+    playerWinsCounter.innerText = currentGame.player1.wins;
+    computerWinsCounter.innerText = currentGame.player2.wins;
+}
+
 function showAttackButtonsModern(){
+    hideFighters();
     rockBtn.classList.remove('hidden');
     paperBtn.classList.remove('hidden');
     scissorsBtn.classList.remove('hidden');
@@ -124,6 +129,7 @@ function showAttackButtonsModern(){
 }
 
 function showAttackButtonsClassic(){
+    hideFighters();
     rockBtn.classList.remove('hidden');
     paperBtn.classList.remove('hidden');
     scissorsBtn.classList.remove('hidden');
@@ -138,9 +144,11 @@ function hideAttackButtons(){
 }
 
 function showFighters(){
+    fighterHeader.classList.remove('hidden');
     fighterBox.classList.remove('hidden');
 }
 function hideFighters(){
+    fighterHeader.classList.add('hidden');
     fighterBox.classList.add('hidden');
 }
 
