@@ -5,7 +5,8 @@
 }
 
 body {
-    background-image: url(./assets/backgrounds/XdZGlu.gif);
+    background-image: url(./assets/backgrounds/matrix.gif);
+    background-size: cover;
     margin-bottom: 30px;
     background-size: cover;
     box-sizing: border-box;
@@ -28,7 +29,7 @@ body {
 .main__header-box{
     display: flex;
     width: 100%;
-    height: 20%;
+    height: 15%;
     justify-content: center;
     align-items: center;
 }
@@ -38,6 +39,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     color: lawngreen;
     font-size: 32pt;
+    margin: 50px;
 }
 
 .main__all-buttons-box {
@@ -78,7 +80,7 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 10%;
+    height: 3%;
 }
 
 .main__current-game-mode{
@@ -86,6 +88,7 @@ body {
     text-align: center;
     color: lawngreen;
     background-color: rgba(0, 0, 0, 0.6);
+    margin: 0;
 }
 
 .main__current-game-mode-text{
@@ -93,12 +96,21 @@ body {
     text-align: center;
     color: lawngreen;
     margin-left: 30px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .main__action-box{
     display: flex;
-    height: 30%;
+    height: 40%;
     width: 100%;
+}
+
+.main__action-fighters-box{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
 }
 
 .sidebar__left, .sidebar__right{
@@ -141,7 +153,7 @@ body {
 .sidebar__left-image-box,
 .sidebar__right-image-box{
     display: flex;
-    height: 300px;
+    height: 250px;
     width: 80%;
 }
 

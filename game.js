@@ -1,7 +1,7 @@
 class Game {
-    constructor(player1, input, mode){
-        this.player1 = new Player(player1);
-        this.player2 = new Player('CPU');
+    constructor(player1, player2, input, mode){
+        this.player1 = player1;
+        this.player2 = player2;
         this.mode = mode || `classic`;
         if (this.mode === `classic`) {
             this.player1Choice = this.player1.takeTurnClassic(input);
