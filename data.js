@@ -1,3 +1,8 @@
+var currentBackground = 0;
+var currentGame;
+var currentMode = `classic`;
+
+
 var backgroundArray = [
     `./assets/backgrounds/matrix.gif`,
     `./assets/backgrounds/rainbow.gif`,
