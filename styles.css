@@ -4,6 +4,34 @@
     font-family: 'Press Start 2P', cursive;
 }
 
+.login__full {
+    position: absolute;
+    width: 100rem;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login__header-top,
+.login__header-bottom {
+    margin: 10%;
+    font-size: 44pt;
+    color: lawngreen;
+}
+
+.login__input-name{
+    height: 10%;
+    width: 30%;
+    background-color: black;
+    font-size: 32pt;
+    color: lawngreen;
+    border-color: lawngreen;
+    text-align: center;
+}
+
 body {
     background-image: url(./assets/backgrounds/matrix.gif);
     background-size: cover;
