@@ -15,14 +15,14 @@ class Game {
     }
 
     checkWinner(){
-        if (this.player1Choice.compare(this.player2Choice) < 0) {
+        if (this.player1Choice.compare(this.player2Choice) > 0) {
             this.player1.wins++;
             return `player`
         }
         if (this.player1Choice.compare(this.player2Choice) === 0) {
             return `draw`
         }
-        if (this.player1Choice.compare(this.player2Choice) > 0) {
+        if (this.player1Choice.compare(this.player2Choice) < 0) {
             this.player2.wins++;
             return `cpu`
         }
