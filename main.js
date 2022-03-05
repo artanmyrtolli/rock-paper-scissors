@@ -115,16 +115,16 @@ function declareWinner(){
     console.log(currentGame);
     if (currentGame.winner === `player`) {
         declarePlayerWins();
+        flashElements();
         return;
     }
     if (currentGame.winner === `cpu`) {
         declareComputerWins();
+        flashElements();
         return;
     }
     declareDraw();
-
-    setInterval(flashElements(), 5000);
-    
+    flashElements();
 }
 
 function declarePlayerWins() {
@@ -176,6 +176,7 @@ function hideAttackButtons(){
 }
 
 function showFighters(){
+    hideWinnerMessage()
     fighterHeader.classList.remove('hidden');
     fighterBox.classList.remove('hidden');
 }
@@ -194,6 +195,7 @@ function hideWinnerMessage(){
     winnerMessage.classList.add('hidden');
 }
 
+
 function ranomizeBackground(){
     currentBackground++;
     if (currentBackground > 7) {
@@ -203,14 +205,17 @@ function ranomizeBackground(){
 }
 
 function flashElements(){
-    // var f = document.getElementById('divId');
     setTimeout(hideWinnerMessage, 500);
     setTimeout(showWinnerMessage, 1000);
     setTimeout(hideWinnerMessage, 1500);
     setTimeout(showWinnerMessage, 2000);
+    setTimeout(hideWinnerMessage, 2500);
+    setTimeout(showWinnerMessage, 3000);
+    setTimeout(hideWinnerMessage, 5000);
 
 }
 
 function randomNumberGenerator(max){
     return Math.floor(Math.random() * max)
 }
+

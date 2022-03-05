@@ -15,12 +15,14 @@ body {
     height: 100vh;
     margin: 0;
     justify-content: center;
+    overflow: hidden;
 }
 
 .main {
+    margin-top: 2%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 70%;
     height: 100%;
@@ -39,7 +41,32 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     color: lawngreen;
     font-size: 32pt;
-    margin: 50px;
+    margin: 40px;
+}
+
+.main__current-game-mode-box{
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 3%;
+}
+
+.main__current-game-mode{
+    font-size: 16pt;
+    text-align: center;
+    color: lawngreen;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+.main__current-game-mode-text{
+    font-size: 16pt;
+    text-align: center;
+    color: lawngreen;
+    margin-left: 30px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .main__all-buttons-box {
@@ -64,47 +91,25 @@ body {
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
-    height: 10%;
+    height: 7%;
     width: 100%;
+    /* margin-top: 2%; */
 }
 .main__player-throw-buttons-box-modern{
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
-    height: 10%;
+    height: 7%;
     width: 100%;
-}
-
-.main__current-game-mode-box{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 3%;
-}
-
-.main__current-game-mode{
-    font-size: 16pt;
-    text-align: center;
-    color: lawngreen;
-    background-color: rgba(0, 0, 0, 0.6);
-    margin: 0;
-}
-
-.main__current-game-mode-text{
-    font-size: 16pt;
-    text-align: center;
-    color: lawngreen;
-    margin-left: 30px;
-    margin: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    /* margin-top: 2%; */
 }
 
 .main__action-box{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 40%;
     width: 100%;
 }
@@ -120,7 +125,9 @@ body {
 .main__action-winner-message {
     color: lawngreen;
     text-align: center;
-    font-size: 56pt;
+    font-size: 50pt;
+    height: 70%;
+    margin: 0;
 }
 
 .main__action-header{
@@ -128,13 +135,24 @@ body {
     color: lawngreen;
     width: 100%;
     height: 5%;
+    margin-top: 0;
 }
 
 .main__action-fighters-box{
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 70%;
+    margin: 0;
+}
+
+.fighter__paladin:hover,
+.fighter__skirt:hover,
+.fighter__viking:hover {
+    border: 2px solid lawngreen;
+    transform: scale(1.1);
+    transition: 200ms;
+    cursor: pointer;
 }
 
 .sidebar__left, .sidebar__right{
@@ -155,6 +173,7 @@ body {
 
 .sidebar__left-header, 
 .sidebar__right-header {
+    text-align: center;
     font-size: 28pt;
     color: lawngreen;
 }
@@ -194,18 +213,20 @@ body {
 }
 
 button {
-    height: 50%;
+    height: 80%;
     width: 30%;
     background-color: lawngreen;
     color: black;
     border-radius: 8px;
     font-size: 14pt;
+    /* margin: 5px; */
 }
 
 button:hover {
     background-color: rgb(87, 142, 32);
     color: white;
     cursor: pointer;
+    border: 1px solid lawngreen;
 }
 
 .hidden {
