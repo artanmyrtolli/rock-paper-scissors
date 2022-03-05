@@ -1,5 +1,8 @@
+var loginName = document.querySelector('.login__input-name')
+var loginPage = document.querySelector('.login__full')
 var body = document.querySelector('body');
 var mainHeader = document.querySelector('.main__header');
+var playerName = document.querySelector('.sidebar__left-header')
 var gameModeText = document.querySelector('.main__current-game-mode-text');
 var pickFighterBtn = document.querySelector('.main__pick-fighter-button');
 var gameModeBtn = document.querySelector('.main__game-mode-button');
@@ -22,8 +25,15 @@ var winnerMessage = document.querySelector('.main__action-winner-message');
 var playerImage = document.querySelector('.sidebar__left-image');
 
 
-var currentPlayer = new Player ('Artan');
-var CPU = new Player('CPU');
+// var currentPlayer = new Player ('Artan');
+var currentPlayer;
+
+
+loginName.addEventListener('keypress', function(e){
+    if (e.key === 'Enter') {
+        setPlayerName(e)
+        initializePlayer(e); }
+});
 
 
 pickFighterBtn.addEventListener('click', showFighters)
@@ -46,6 +56,14 @@ scissorsBtn.addEventListener('click', createScissorsClass);
 alienBtn.addEventListener('click', createAlienClass);
 lizardBtn.addEventListener('click', createLizardClass);
 
+function initializePlayer(e){
+    loginPage.classList.add('hidden');
+    currentPlayer = new Player(e.target.value)
+}
+
+function setPlayerName(e){
+    playerName.innerText = e.target.value;
+}
 
 function changeFighterPaladin(){
     playerImage.src = `./assets/fighters/Paladin.png`;
@@ -106,6 +124,7 @@ function createLizardClass() {
 }
 
 function userChoice(choice){
+    var CPU = new Player('CPU');
     hideAttackButtons()
     currentGame = new Game(currentPlayer, CPU, choice, currentMode);
     declareWinner();
