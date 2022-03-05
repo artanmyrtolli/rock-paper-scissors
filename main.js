@@ -62,7 +62,11 @@ function initializePlayer(e){
 }
 
 function setPlayerName(e){
-    playerName.innerText = e.target.value;
+    if (e.target.value) {
+        playerName.innerText = e.target.value;
+        return;
+    } 
+    playerName.innerText = `Player 1`
 }
 
 function changeFighterPaladin(){
