@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <form class="login__full" onsubmit="return false">
-    <h1 class="login__header-top">ENTER YOUR NAME:</h1>
+    <h1 class="login__header-top">ENTER YOUR NAME</h1>
     <input class="login__input-name" type="text">
     <h1 class="login__header-bottom">THEN PRESS ENTER</h1>
 </form>
@@ -49,16 +49,19 @@
             <button class="main__lizard-throw-button hidden">Lizard</button>
             <button class="main__alien-throw-button hidden">Alien</button>
         </section>
+        <section>
+            <p class="main__action-winner-detailed hidden"></p>
+        </section>
         <section class="main__action-box">
+            <header class="main__action-winner-box hidden">
+                <h1 class="main__action-winner-message"></h1>
+            </header>
             <h1 class="main__action-header hidden">CHOOSE YOUR FIGHTER:</h1>
             <section class="main__action-fighters-box hidden">
                 <img class="fighter__paladin" src="./assets/fighters/Paladin.png" alt="paladin fighter class">
                 <img class="fighter__skirt" src="./assets/fighters/Skirt.png" alt="skirt fighter class">
                 <img class="fighter__viking" src="./assets/fighters/Viking.png" alt="viking fighter class">
             </section>
-            <header class="main__action-winner-box hidden">
-                <h1 class="main__action-winner-message hidden"></h1>
-            </header>
         </section>
     </section>
     <section class="sidebar__right">

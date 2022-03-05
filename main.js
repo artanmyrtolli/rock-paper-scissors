@@ -22,11 +22,13 @@ var playerWinsCounter = document.querySelector('.sidebar__left-counter-number');
 var computerWinsCounter = document.querySelector('.sidebar__right-counter-number');
 var winnerBox = document.querySelector('.main__action-winner-box');
 var winnerMessage = document.querySelector('.main__action-winner-message');
+var detailedWinnerMessage = document.querySelector('.main__action-winner-detailed')
 var playerImage = document.querySelector('.sidebar__left-image');
 
 
 // var currentPlayer = new Player ('Artan');
 var currentPlayer;
+var CPU = new Player('CPU');
 
 
 loginName.addEventListener('keypress', function(e){
@@ -87,6 +89,7 @@ function changeFighterViking(){
 
 function changeGameMode(){
     hideAttackButtons();
+    hideDetailedWinMessage();
     if (currentMode === `classic`) {
         currentMode = `modern`;
         gameModeText.innerText = `Modern`
@@ -128,10 +131,10 @@ function createLizardClass() {
 }
 
 function userChoice(choice){
-    var CPU = new Player('CPU');
     hideAttackButtons()
     currentGame = new Game(currentPlayer, CPU, choice, currentMode);
     declareWinner();
+
 }
 
 function declareWinner(){
@@ -154,17 +157,29 @@ function declarePlayerWins() {
     showWinnerMessage();
     winnerMessage.innerText = '<<< PLAYER WINS!!'
     adjustWinCounters();
+    showDetailedWinMessage();
+    showPlayerWinDetails();
 }
 
 function declareComputerWins() {
     showWinnerMessage();
     winnerMessage.innerText = 'CPU WINS!! >>>'
     adjustWinCounters();
+    showDetailedWinMessage();
+    showCpuWinDetails();
 }
 
 function declareDraw() {
     showWinnerMessage();
     winnerMessage.innerText = 'THIS MATCH IS A DRAW!'
+}
+
+function showCpuWinDetails(){
+    detailedWinnerMessage.innerText = `${currentGame.player2Choice.name.toUpperCase()} BEATS ${currentGame.player1Choice.name.toUpperCase()}`
+}
+
+function showPlayerWinDetails(){
+    detailedWinnerMessage.innerText = `${currentGame.player1Choice.name.toUpperCase()} BEATS ${currentGame.player2Choice.name.toUpperCase()}`
 }
 
 function adjustWinCounters(){
@@ -173,6 +188,7 @@ function adjustWinCounters(){
 }
 
 function showAttackButtonsModern(){
+    hideDetailedWinMessage();
     hideWinnerMessage();
     hideFighters();
     rockBtn.classList.remove('hidden');
@@ -183,6 +199,7 @@ function showAttackButtonsModern(){
 }
 
 function showAttackButtonsClassic(){
+    hideDetailedWinMessage();
     hideWinnerMessage();
     hideFighters();
     rockBtn.classList.remove('hidden');
@@ -216,6 +233,14 @@ function showWinnerMessage(){
 function hideWinnerMessage(){
     winnerBox.classList.add('hidden');
     winnerMessage.classList.add('hidden');
+}
+
+function showDetailedWinMessage(){
+    detailedWinnerMessage.classList.remove('hidden');
+}
+
+function hideDetailedWinMessage(){
+    detailedWinnerMessage.classList.add('hidden');
 }
 
 
