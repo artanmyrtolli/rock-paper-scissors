@@ -24,12 +24,19 @@ var winnerBox = document.querySelector('.main__action-winner-box');
 var winnerMessage = document.querySelector('.main__action-winner-message');
 var detailedWinnerMessage = document.querySelector('.main__action-winner-detailed')
 var playerImage = document.querySelector('.sidebar__left-image');
+var inputNameBox = document.querySelector('.main__action-input-name-box')
+var changeNameBtn = document.querySelector('.main__change-name-button');
+var rulesBtn = document.querySelector('.main__rules-button')
+var rulesImage = document.querySelector('.main__action-rules-image')
 
 
 // var currentPlayer = new Player ('Artan');
 var currentPlayer;
 var CPU = new Player('CPU');
 
+
+rulesBtn.addEventListener('click', showRules);
+changeNameBtn.addEventListener('click', showUserNameForm);
 
 loginName.addEventListener('keypress', function(e){
     if (e.key === 'Enter') {
@@ -243,6 +250,13 @@ function hideDetailedWinMessage(){
     detailedWinnerMessage.classList.add('hidden');
 }
 
+function showUserNameForm(){
+    inputNameBox.classList.remove('hidden');
+}
+
+function showRules(){
+    rulesImage.classList.remove('hidden');
+}
 
 function ranomizeBackground(){
     currentBackground++;
