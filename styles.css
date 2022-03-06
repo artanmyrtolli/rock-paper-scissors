@@ -1,36 +1,11 @@
 * {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     /* font-family: 'Electrolize', sans-serif; */
     font-family: 'Press Start 2P', cursive;
 }
 
-.login__full {
-    position: absolute;
-    width: 100rem;
-    height: 100vh;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
-.login__header-top,
-.login__header-bottom {
-    margin: 10%;
-    font-size: 44pt;
-    color: lawngreen;
-}
 
-.login__input-name{
-    height: 10%;
-    width: 30%;
-    background-color: black;
-    font-size: 16pt;
-    color: lawngreen;
-    border-color: lawngreen;
-    text-align: center;
-}
 
 body {
     background-image: url(./assets/backgrounds/matrix.gif);
@@ -200,11 +175,21 @@ body {
 
 .main__action-input-name-box {
     width: 100%;
-    height: 70%;
+    height: 20%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.main__action-input-name{
+    height: 80%;
+    width: 30%;
+    background-color: black;
+    font-size: 16pt;
+    color: lawngreen;
+    border-color: lawngreen;
+    text-align: center;
 }
 
 .main__action-rules-image {
@@ -215,7 +200,7 @@ body {
 
 .main__action-bottom-button-box {
     width: 100%;
-    height: 30px;
+    height: 40px;
     display: flex;
     justify-content: space-around;
     align-items: center;
