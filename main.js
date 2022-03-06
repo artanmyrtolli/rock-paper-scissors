@@ -1,5 +1,3 @@
-var loginName = document.querySelector('.login__input-name')
-var loginPage = document.querySelector('.login__full')
 var body = document.querySelector('body');
 var mainHeader = document.querySelector('.main__header');
 var playerName = document.querySelector('.sidebar__left-header')
@@ -26,25 +24,20 @@ var detailedWinnerMessage = document.querySelector('.main__action-winner-detaile
 var playerImage = document.querySelector('.sidebar__left-image');
 var inputNameBox = document.querySelector('.main__action-input-name-box')
 var changeNameBtn = document.querySelector('.main__change-name-button');
+var inputName = document.querySelector('.main__action-input-name')
+var submitNameBtn = document.querySelector('.main__action-input-name-button')
 var rulesBtn = document.querySelector('.main__rules-button')
 var rulesImage = document.querySelector('.main__action-rules-image')
 
 
 // var currentPlayer = new Player ('Artan');
-var currentPlayer;
+var currentPlayer = new Player ('Player1');
 var CPU = new Player('CPU');
 
 
-rulesBtn.addEventListener('click', showRules);
+rulesBtn.addEventListener('click', toggleRules);
 changeNameBtn.addEventListener('click', showUserNameForm);
-
-loginName.addEventListener('keypress', function(e){
-    if (e.key === 'Enter') {
-        setPlayerName(e)
-        initializePlayer(e); }
-});
-
-
+submitNameBtn.addEventListener('click', setPlayerName)
 pickFighterBtn.addEventListener('click', showFighters)
 fighterPaladin.addEventListener('click', changeFighterPaladin);
 fighterSkirt.addEventListener('click', changeFighterSkirt);
@@ -65,17 +58,16 @@ scissorsBtn.addEventListener('click', createScissorsClass);
 alienBtn.addEventListener('click', createAlienClass);
 lizardBtn.addEventListener('click', createLizardClass);
 
-function initializePlayer(e){
-    loginPage.classList.add('hidden');
-    currentPlayer = new Player(e.target.value)
-}
 
-function setPlayerName(e){
-    if (e.target.value) {
-        playerName.innerText = e.target.value;
+function setPlayerName(){
+    if (inputName.value) {
+        playerName.innerText = inputName.value;
+        currentPlayer = new Player(`${inputName.value}`)
+        inputNameBox.classList.add('hidden');
         return;
     } 
-    playerName.innerText = `Player 1`
+    playerName.innerText = `Player 1`;
+    inputNameBox.classList.add('hidden');
 }
 
 function changeFighterPaladin(){
@@ -162,7 +154,7 @@ function declareWinner(){
 
 function declarePlayerWins() {
     showWinnerMessage();
-    winnerMessage.innerText = '<<< PLAYER WINS!!'
+    winnerMessage.innerText = `<<< ${playerName.innerText.toUpperCase()} WINS!!`
     adjustWinCounters();
     showDetailedWinMessage();
     showPlayerWinDetails();
@@ -254,8 +246,13 @@ function showUserNameForm(){
     inputNameBox.classList.remove('hidden');
 }
 
-function showRules(){
-    rulesImage.classList.remove('hidden');
+function toggleRules(){
+    console.log(rulesImage.classList);
+    if (rulesImage.classList[1] === 'hidden') {
+        rulesImage.classList.remove('hidden');
+    } else {
+        rulesImage.classList.add('hidden')
+    }
 }
 
 function ranomizeBackground(){
