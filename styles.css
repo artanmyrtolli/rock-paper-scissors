@@ -1,11 +1,6 @@
 * {
-    /* border: 2px solid red; */
-    /* font-family: 'Electrolize', sans-serif; */
     font-family: 'Press Start 2P', cursive;
 }
-
-
-
 
 body {
     background-image: url(./assets/backgrounds/matrix.gif);
@@ -88,6 +83,7 @@ body {
     height: 80%;
     width: 100%;
 }
+
 .main__player-throw-buttons-box-classic{
     display: flex;
     justify-content: space-around;
@@ -95,8 +91,8 @@ body {
     flex-direction: row;
     height: 7%;
     width: 100%;
-    /* margin-top: 2%; */
 }
+
 .main__player-throw-buttons-box-modern{
     display: flex;
     justify-content: space-around;
@@ -104,7 +100,6 @@ body {
     flex-direction: row;
     height: 7%;
     width: 100%;
-    /* margin-top: 2%; */
 }
 
 .main__action-box{
@@ -270,7 +265,6 @@ button {
     color: black;
     border-radius: 8px;
     font-size: 14pt;
-    /* margin: 5px; */
 }
 
 button:hover {

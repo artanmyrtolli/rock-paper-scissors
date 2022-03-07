@@ -1,8 +1,3 @@
-var currentBackground = 0;
-var currentGame;
-var currentMode = `classic`;
-
-
 var backgroundArray = [
     `./assets/backgrounds/matrix.gif`,
     `./assets/backgrounds/rainbow.gif`,
@@ -11,5 +6,4 @@ var backgroundArray = [
     `./assets/backgrounds/city.gif`,
     `./assets/backgrounds/retro.gif`,
     `./assets/backgrounds/space.gif`,
-    `./assets/backgrounds/parsecs.gif`
 ]
