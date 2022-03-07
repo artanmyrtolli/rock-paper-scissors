@@ -27,14 +27,15 @@ var changeNameBtn = document.querySelector('.main__change-name-button');
 var inputName = document.querySelector('.main__action-input-name')
 var submitNameBtn = document.querySelector('.main__action-input-name-button')
 var rulesBtn = document.querySelector('.main__rules-button')
-var rulesImage = document.querySelector('.main__action-rules-image')
+var rulesImage = document.querySelector('.main__action-rules-image');
+var resetBtn = document.querySelector('.main__reset-score-button');
 
 
 // var currentPlayer = new Player ('Artan');
 var currentPlayer = new Player ('Player1');
 var CPU = new Player('CPU');
 
-
+resetBtn.addEventListener('click', resetScores)
 rulesBtn.addEventListener('click', toggleRules);
 changeNameBtn.addEventListener('click', showUserNameForm);
 submitNameBtn.addEventListener('click', setPlayerName)
@@ -243,16 +244,25 @@ function hideDetailedWinMessage(){
 }
 
 function showUserNameForm(){
-    inputNameBox.classList.remove('hidden');
+    if (inputNameBox.classList[1] === 'hidden') {
+        inputNameBox.classList.remove('hidden');
+    } else {
+        inputNameBox.classList.add('hidden')
+    }
 }
 
 function toggleRules(){
-    console.log(rulesImage.classList);
     if (rulesImage.classList[1] === 'hidden') {
         rulesImage.classList.remove('hidden');
     } else {
         rulesImage.classList.add('hidden')
     }
+}
+
+function resetScores(){
+    currentGame.player1.wins = 0;
+    currentGame.player2.wins = 0;
+    adjustWinCounters();
 }
 
 function ranomizeBackground(){
