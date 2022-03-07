@@ -1,7 +1,7 @@
 class Player {
-    constructor(name, token){
+    constructor(name){
         this.name = name;
-        this.token = token;
+        this.token = "./assets/fighters/Paladin.png";
         this.wins = 0;
         this.optionsClassic = [new Rock(), new Paper(), new Scissors()];
         this.optionsModern = [new Rock(), new Paper(), new Scissors(), new Alien(), new Lizard()];
