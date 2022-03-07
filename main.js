@@ -1,7 +1,21 @@
+//_____________________________QUERY SELECTORS________________________________________
 var body = document.querySelector('body');
-var mainHeader = document.querySelector('.main__header');
+//---------sidebar-left-------------
 var playerName = document.querySelector('.sidebar__left-header')
+var playerWinsCounter = document.querySelector('.sidebar__left-counter-number');
+var playerImage = document.querySelector('.sidebar__left-image');
+//---------sidebar-right-------------
+var computerWinsCounter = document.querySelector('.sidebar__right-counter-number');
+//---------main (middle, top to bottom)-------------
+var mainHeader = document.querySelector('.main__header');
 var gameModeText = document.querySelector('.main__current-game-mode-text');
+var winnerBox = document.querySelector('.main__action-winner-box');
+var detailedWinnerMessage = document.querySelector('.main__action-winner-detailed')
+var winnerMessage = document.querySelector('.main__action-winner-message');
+var inputNameBox = document.querySelector('.main__action-input-name-box')
+var inputName = document.querySelector('.main__action-input-name')
+var rulesImage = document.querySelector('.main__action-rules-image');
+//---------buttons-------------
 var pickFighterBtn = document.querySelector('.main__pick-fighter-button');
 var gameModeBtn = document.querySelector('.main__game-mode-button');
 var changeBkgdBtn = document.querySelector('.main__chng-bknd-button')
@@ -11,28 +25,25 @@ var paperBtn = document.querySelector('.main__paper-throw-button');
 var scissorsBtn = document.querySelector('.main__scissors-throw-button');
 var alienBtn = document.querySelector('.main__alien-throw-button');
 var lizardBtn = document.querySelector('.main__lizard-throw-button');
+var changeNameBtn = document.querySelector('.main__change-name-button');
+var submitNameBtn = document.querySelector('.main__action-input-name-button')
+var rulesBtn = document.querySelector('.main__rules-button')
+var resetBtn = document.querySelector('.main__reset-score-button');
+//---------fighters-------------
 var fighterBox = document.querySelector('.main__action-fighters-box'); 
 var fighterHeader = document.querySelector('.main__action-header')
 var fighterPaladin = document.querySelector('.fighter__paladin');
 var fighterSkirt = document.querySelector('.fighter__skirt');
 var fighterViking = document.querySelector('.fighter__viking');
-var playerWinsCounter = document.querySelector('.sidebar__left-counter-number');
-var computerWinsCounter = document.querySelector('.sidebar__right-counter-number');
-var winnerBox = document.querySelector('.main__action-winner-box');
-var winnerMessage = document.querySelector('.main__action-winner-message');
-var detailedWinnerMessage = document.querySelector('.main__action-winner-detailed')
-var playerImage = document.querySelector('.sidebar__left-image');
-var inputNameBox = document.querySelector('.main__action-input-name-box')
-var changeNameBtn = document.querySelector('.main__change-name-button');
-var inputName = document.querySelector('.main__action-input-name')
-var submitNameBtn = document.querySelector('.main__action-input-name-button')
-var rulesBtn = document.querySelector('.main__rules-button')
-var rulesImage = document.querySelector('.main__action-rules-image');
-var resetBtn = document.querySelector('.main__reset-score-button');
 
+//_____________________________GLOBAL VARIABLES_______________________________________
 var currentPlayer = new Player ('Player1');
 var CPU = new Player('CPU');
+var currentBackground = 0;
+var currentGame;
+var currentMode = `classic`;
 
+//_____________________________EVENT LISTENERS_______________________________________
 resetBtn.addEventListener('click', resetScores)
 rulesBtn.addEventListener('click', toggleRules);
 changeNameBtn.addEventListener('click', showUserNameForm);
@@ -43,6 +54,11 @@ fighterSkirt.addEventListener('click', changeFighterSkirt);
 fighterViking.addEventListener('click', changeFighterViking);
 changeBkgdBtn.addEventListener('click', ranomizeBackground)
 gameModeBtn.addEventListener('click', changeGameMode)
+rockBtn.addEventListener('click', createRockClass);
+paperBtn.addEventListener('click', createPaperClass);
+scissorsBtn.addEventListener('click', createScissorsClass);
+alienBtn.addEventListener('click', createAlienClass);
+lizardBtn.addEventListener('click', createLizardClass);
 attackBtn.addEventListener('click', function(){
     if (currentMode === `classic`) {
         showAttackButtonsClassic();
@@ -51,17 +67,12 @@ attackBtn.addEventListener('click', function(){
         showAttackButtonsModern();
     }
 })
-rockBtn.addEventListener('click', createRockClass);
-paperBtn.addEventListener('click', createPaperClass);
-scissorsBtn.addEventListener('click', createScissorsClass);
-alienBtn.addEventListener('click', createAlienClass);
-lizardBtn.addEventListener('click', createLizardClass);
 
-
+//_____________________________FUNCTIONS_______________________________________
 function setPlayerName(){
     if (inputName.value) {
         playerName.innerText = inputName.value;
-        currentPlayer = new Player(`${inputName.value}`)
+        currentPlayer.name = inputName.value
         inputNameBox.classList.add('hidden');
         return;
     } 
@@ -86,7 +97,6 @@ function changeFighterViking(){
     currentPlayer.token = `./assets/fighters/Viking.png`;
     hideFighters();
 }
-
 
 function changeGameMode(){
     hideAttackButtons();
@@ -135,23 +145,22 @@ function userChoice(choice){
     hideAttackButtons()
     currentGame = new Game(currentPlayer, CPU, choice, currentMode);
     declareWinner();
-
 }
 
 function declareWinner(){
     console.log(currentGame);
     if (currentGame.winner === `player`) {
         declarePlayerWins();
-        flashElements();
+        flashMessage();
         return;
     }
     if (currentGame.winner === `cpu`) {
         declareComputerWins();
-        flashElements();
+        flashMessage();
         return;
     }
     declareDraw();
-    flashElements();
+    flashMessage();
 }
 
 function declarePlayerWins() {
@@ -188,6 +197,30 @@ function adjustWinCounters(){
     computerWinsCounter.innerText = currentGame.player2.wins;
 }
 
+function resetScores(){
+    currentGame.player1.wins = 0;
+    currentGame.player2.wins = 0;
+    adjustWinCounters();
+}
+
+function ranomizeBackground(){
+    currentBackground++;
+    if (currentBackground > 6) {
+        currentBackground = 0;
+    }
+    body.style.backgroundImage = `url(${backgroundArray[currentBackground]})`;
+}
+
+function flashMessage(){
+    setTimeout(hideWinnerMessage, 500);
+    setTimeout(showWinnerMessage, 1000);
+    setTimeout(hideWinnerMessage, 1500);
+    setTimeout(showWinnerMessage, 2000);
+    setTimeout(hideWinnerMessage, 2500);
+    setTimeout(showWinnerMessage, 3000);
+    setTimeout(hideWinnerMessage, 5000);
+}
+ //---------Hide/Show Functions-------------
 function showAttackButtonsModern(){
     hideDetailedWinMessage();
     hideWinnerMessage();
@@ -259,33 +292,3 @@ function toggleRules(){
         rulesImage.classList.add('hidden')
     }
 }
-
-function resetScores(){
-    currentGame.player1.wins = 0;
-    currentGame.player2.wins = 0;
-    adjustWinCounters();
-}
-
-function ranomizeBackground(){
-    currentBackground++;
-    if (currentBackground > 7) {
-        currentBackground = 0;
-    }
-    body.style.backgroundImage = `url(${backgroundArray[currentBackground]})`;
-}
-
-function flashElements(){
-    setTimeout(hideWinnerMessage, 500);
-    setTimeout(showWinnerMessage, 1000);
-    setTimeout(hideWinnerMessage, 1500);
-    setTimeout(showWinnerMessage, 2000);
-    setTimeout(hideWinnerMessage, 2500);
-    setTimeout(showWinnerMessage, 3000);
-    setTimeout(hideWinnerMessage, 5000);
-
-}
-
-function randomNumberGenerator(max){
-    return Math.floor(Math.random() * max)
-}
-
