@@ -30,8 +30,6 @@ var rulesBtn = document.querySelector('.main__rules-button')
 var rulesImage = document.querySelector('.main__action-rules-image');
 var resetBtn = document.querySelector('.main__reset-score-button');
 
-
-// var currentPlayer = new Player ('Artan');
 var currentPlayer = new Player ('Player1');
 var CPU = new Player('CPU');
 
@@ -73,16 +71,19 @@ function setPlayerName(){
 
 function changeFighterPaladin(){
     playerImage.src = `./assets/fighters/Paladin.png`;
+    currentPlayer.token = `./assets/fighters/Paladin.png`;
     hideFighters();
 }
 
 function changeFighterSkirt(){
     playerImage.src = `./assets/fighters/Skirt.png`;
+    currentPlayer.token = `./assets/fighters/Skirt.png`;
     hideFighters();
 }
 
 function changeFighterViking(){
     playerImage.src = `./assets/fighters/Viking.png`;
+    currentPlayer.token = `./assets/fighters/Viking.png`;
     hideFighters();
 }
 
