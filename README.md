@@ -6,10 +6,6 @@ This is a simple web-based game of `rock-paper-scissors` that also includes the 
 
 The game has been given an 80's arcade aesthetic with 8-bit inspired assets/graphics, including interchangeable backgrounds and player avatars.
 
-## Links
-
-GitHub deployed page can be viewed --[here](https://artanmyrtolli.github.io/rock-paper-scissors/)--
-
 The spec for this project can be found --[here](https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo.html)--
 
 ## Learning Goals
@@ -29,6 +25,9 @@ Artan Myrtolli
 Goals - To beat the computer or `CPU` at a game of rock-paper-scissors by "attacking" with a throw that will beat the computer's randomly generated choice.
 
 The user may first familiarize themselves with the rules by hitting the `Rules` button near the bottom right of the screen. This will bring up an image that describes which choice beats what potential `CPU` choice. Clicking the `Rules` button again will toggle the image on/off.
+
+<img width="274" alt="Screen Shot 2022-03-07 at 4 32 26 PM" src="https://user-images.githubusercontent.com/92772785/157121467-782a33ae-0563-4cea-a20b-62877e072c5e.png">
+
 
 The user may change their avatar by clicking on the `Pick Fighter` button. This will bring up 3 potential options to select at the bottom of the screen. The user may select one and have their image updated in the bottom left of the screen. The user may update their choice anytime by clicking the `Pick Fighter` button again.
 
