@@ -50,10 +50,14 @@ The user may click the `Attack` button again anytime for another round. The user
 
 The user may change the game mode to the 5-throw version by clicking the `Game Mode` button in the top right side of the screen. The Title header of the page as well as corresponding message underneath it will update the user that the game mode has changed, and what it is currently.
 
-Upon changing to the 5-throw variation of the game, when the `Attack` button is clicked, 2 additional options of `Lizard` and `Alien` will now also appear.<img width="454" alt="Screen Shot 2022-03-07 at 4 50 59 PM" src="https://user-images.githubusercontent.com/92772785/157123943-ec466c83-8d39-477c-b5b9-32b0f911a49b.png">
+Upon changing to the 5-throw variation of the game, when the `Attack` button is clicked, 2 additional options of `Lizard` and `Alien` will now also appear.
+
+<img width="454" alt="Screen Shot 2022-03-07 at 4 50 59 PM" src="https://user-images.githubusercontent.com/92772785/157123943-ec466c83-8d39-477c-b5b9-32b0f911a49b.png">
 
 
-User may update their displayed name in the top left of the screen anytime by clicking the `Change Name` button in the bottom left of the screen. The button will bring up a simple field for the user to type in their desired name to be displayed. Clicking the `Submit` button on this form will confirm the user's choice and hide the window.<img width="387" alt="Screen Shot 2022-03-07 at 4 51 11 PM" src="https://user-images.githubusercontent.com/92772785/157123905-a7b955ea-5c9d-4ce0-bc53-2fded1352d8a.png">
+User may update their displayed name in the top left of the screen anytime by clicking the `Change Name` button in the bottom left of the screen. The button will bring up a simple field for the user to type in their desired name to be displayed. Clicking the `Submit` button on this form will confirm the user's choice and hide the window.
+
+<img width="387" alt="Screen Shot 2022-03-07 at 4 51 11 PM" src="https://user-images.githubusercontent.com/92772785/157123905-a7b955ea-5c9d-4ce0-bc53-2fded1352d8a.png">
 
 
 User may reset the game at anytime by clicking the `Reset Score` button. User selected background, avatar, and name will persist. To fully reset user may reload the page on their browser. 
