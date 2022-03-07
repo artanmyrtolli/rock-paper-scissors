@@ -26,7 +26,9 @@ Goals - To beat the computer or `CPU` at a game of rock-paper-scissors by "attac
 
 The user may first familiarize themselves with the rules by hitting the `Rules` button near the bottom right of the screen. This will bring up an image that describes which choice beats what potential `CPU` choice. Clicking the `Rules` button again will toggle the image on/off.
 
-<img width="274" alt="Screen Shot 2022-03-07 at 4 32 26 PM" src="https://user-images.githubusercontent.com/92772785/157121467-782a33ae-0563-4cea-a20b-62877e072c5e.png">
+<img width="274" alt="Screen Shot 2022-03-07 at 4 32 26 PM" src="https://user-images.githubusercontent.com/92772785/157121859-0f03861e-eea2-4f83-9cd1-bf0dbe12f461.png">
+
+![Screen Shot 2022-03-06 at 2 43 05 AM](https://user-images.githubusercontent.com/92772785/157121822-02cc7257-4f60-4336-aa53-8c651906cc7e.png)
 
 
 The user may change their avatar by clicking on the `Pick Fighter` button. This will bring up 3 potential options to select at the bottom of the screen. The user may select one and have their image updated in the bottom left of the screen. The user may update their choice anytime by clicking the `Pick Fighter` button again.
