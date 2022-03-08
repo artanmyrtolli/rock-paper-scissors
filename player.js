@@ -3,16 +3,15 @@ class Player {
         this.name = name;
         this.token = "./assets/fighters/Paladin.png";
         this.wins = 0;
-        this.optionsClassic = [new Rock(), new Paper(), new Scissors()];
-        this.optionsModern = [new Rock(), new Paper(), new Scissors(), new Alien(), new Lizard()];
+        this.optionsClassic = [rock, paper, scissors];
+        this.optionsModern = [rock, paper, scissors, lizard, alien];
     }
-    takeTurnClassic(input){
-         return input || this.optionsClassic[this.randomNumberGenerator(3)]
+    takeTurnClassic(){
+        return this.optionsClassic[this.randomNumberGenerator(3)]
     }
-    takeTurnModern(input){
-        return input || this.optionsModern[this.randomNumberGenerator(5)]
+    takeTurnModern(){
+        return this.optionsModern[this.randomNumberGenerator(5)]
    }
-
     randomNumberGenerator(max){
         return Math.floor(Math.random() * max)
     }

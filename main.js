@@ -1,7 +1,7 @@
 //_____________________________QUERY SELECTORS________________________________________
 var body = document.querySelector('body');
 //---------sidebar-left-------------
-var playerName = document.querySelector('.sidebar__left-header')
+var playerName = document.querySelector('.sidebar__left-header');
 var playerWinsCounter = document.querySelector('.sidebar__left-counter-number');
 var playerImage = document.querySelector('.sidebar__left-image');
 //---------sidebar-right-------------
@@ -12,13 +12,13 @@ var gameModeText = document.querySelector('.main__current-game-mode-text');
 var winnerBox = document.querySelector('.main__action-winner-box');
 var detailedWinnerMessage = document.querySelector('.main__action-winner-detailed')
 var winnerMessage = document.querySelector('.main__action-winner-message');
-var inputNameBox = document.querySelector('.main__action-input-name-box')
-var inputName = document.querySelector('.main__action-input-name')
+var inputNameBox = document.querySelector('.main__action-input-name-box');
+var inputName = document.querySelector('.main__action-input-name');
 var rulesImage = document.querySelector('.main__action-rules-image');
 //---------buttons-------------
 var pickFighterBtn = document.querySelector('.main__pick-fighter-button');
 var gameModeBtn = document.querySelector('.main__game-mode-button');
-var changeBkgdBtn = document.querySelector('.main__chng-bknd-button')
+var changeBkgdBtn = document.querySelector('.main__chng-bknd-button');
 var attackBtn = document.querySelector('.main__attack-button');
 var rockBtn = document.querySelector('.main__rock-throw-button');
 var paperBtn = document.querySelector('.main__paper-throw-button');
@@ -26,39 +26,51 @@ var scissorsBtn = document.querySelector('.main__scissors-throw-button');
 var alienBtn = document.querySelector('.main__alien-throw-button');
 var lizardBtn = document.querySelector('.main__lizard-throw-button');
 var changeNameBtn = document.querySelector('.main__change-name-button');
-var submitNameBtn = document.querySelector('.main__action-input-name-button')
-var rulesBtn = document.querySelector('.main__rules-button')
+var submitNameBtn = document.querySelector('.main__action-input-name-button');
+var rulesBtn = document.querySelector('.main__rules-button');
 var resetBtn = document.querySelector('.main__reset-score-button');
 //---------fighters-------------
 var fighterBox = document.querySelector('.main__action-fighters-box'); 
-var fighterHeader = document.querySelector('.main__action-header')
+var fighterHeader = document.querySelector('.main__action-header');
 var fighterPaladin = document.querySelector('.fighter__paladin');
 var fighterSkirt = document.querySelector('.fighter__skirt');
 var fighterViking = document.querySelector('.fighter__viking');
 
 //_____________________________GLOBAL VARIABLES_______________________________________
-var currentPlayer = new Player ('Player1');
-var CPU = new Player('CPU');
+var currentPlayer = new Player (`Player1`);
+var CPU = new Player (`CPU`);
 var currentBackground = 0;
 var currentGame;
 var currentMode = `classic`;
 
 //_____________________________EVENT LISTENERS_______________________________________
-resetBtn.addEventListener('click', resetScores)
+resetBtn.addEventListener('click', resetScores);
 rulesBtn.addEventListener('click', toggleRules);
 changeNameBtn.addEventListener('click', showUserNameForm);
-submitNameBtn.addEventListener('click', setPlayerName)
-pickFighterBtn.addEventListener('click', showFighters)
+submitNameBtn.addEventListener('click', setPlayerName);
+pickFighterBtn.addEventListener('click', showFighters);
 fighterPaladin.addEventListener('click', changeFighterPaladin);
 fighterSkirt.addEventListener('click', changeFighterSkirt);
 fighterViking.addEventListener('click', changeFighterViking);
-changeBkgdBtn.addEventListener('click', ranomizeBackground)
-gameModeBtn.addEventListener('click', changeGameMode)
-rockBtn.addEventListener('click', createRockClass);
-paperBtn.addEventListener('click', createPaperClass);
-scissorsBtn.addEventListener('click', createScissorsClass);
-alienBtn.addEventListener('click', createAlienClass);
-lizardBtn.addEventListener('click', createLizardClass);
+changeBkgdBtn.addEventListener('click', ranomizeBackground);
+gameModeBtn.addEventListener('click', changeGameMode);
+ //---------Player Throws-------------
+rockBtn.addEventListener('click', function(){
+    userChoice(rock);
+});
+paperBtn.addEventListener('click', function(){
+    userChoice(paper);
+});
+scissorsBtn.addEventListener('click', function(){
+    userChoice(scissors);
+});
+alienBtn.addEventListener('click', function(){
+    userChoice(alien);
+});
+lizardBtn.addEventListener('click', function(){
+    userChoice(lizard)
+});
+
 attackBtn.addEventListener('click', function(){
     if (currentMode === `classic`) {
         showAttackButtonsClassic();
@@ -120,35 +132,13 @@ function changeHeaderClassic(){
     mainHeader.innerText = `ROCK, PAPER, SCISSORS`
 }
 
-function createRockClass() {
-    var rock = new Rock()
-    userChoice(rock);
-}
-function createPaperClass() {
-    var paper = new Paper()
-    userChoice(paper);
-}
-function createScissorsClass() {
-    var scissors = new Scissors()
-    userChoice(scissors);
-}
-function createAlienClass() {
-    var alien = new Alien()
-    userChoice(alien);
-}
-function createLizardClass() {
-    var lizard = new Lizard()
-    userChoice(lizard);
-}
-
 function userChoice(choice){
-    hideAttackButtons()
+    hideAttackButtons();
     currentGame = new Game(currentPlayer, CPU, choice, currentMode);
     declareWinner();
 }
 
 function declareWinner(){
-    console.log(currentGame);
     if (currentGame.winner === `player`) {
         declarePlayerWins();
         flashMessage();
@@ -281,7 +271,7 @@ function showUserNameForm(){
     if (inputNameBox.classList[1] === 'hidden') {
         inputNameBox.classList.remove('hidden');
     } else {
-        inputNameBox.classList.add('hidden')
+        inputNameBox.classList.add('hidden');
     }
 }
 
@@ -289,6 +279,6 @@ function toggleRules(){
     if (rulesImage.classList[1] === 'hidden') {
         rulesImage.classList.remove('hidden');
     } else {
-        rulesImage.classList.add('hidden')
+        rulesImage.classList.add('hidden');
     }
 }
