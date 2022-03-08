@@ -3,17 +3,15 @@ class Game {
         this.player1 = player1;
         this.player2 = player2;
         this.mode = mode || `classic`;
+        this.player1Choice = input;
         if (this.mode === `classic`) {
-            this.player1Choice = this.player1.takeTurnClassic(input);
             this.player2Choice = this.player2.takeTurnClassic();
         }
         if (this.mode === `modern`) {
-            this.player1Choice = this.player1.takeTurnModern(input);
             this.player2Choice = this.player2.takeTurnModern();
         }
         this.winner = this.checkWinner();
     }
-
     checkWinner(){
         if (this.player1Choice.compare(this.player2Choice) > 0) {
             this.player1.wins++;
